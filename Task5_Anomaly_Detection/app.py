@@ -1,4 +1,4 @@
-
+import os
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
@@ -7,8 +7,6 @@ st.set_page_config(page_title="SUNSHIELD Anomaly Dashboard", layout="wide")
 st.title("SUNSHIELD — PV Anomaly Detection Dashboard")
 
 @st.cache_data
-import os
-
 def load_data():
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     csv_path = os.path.join(BASE_DIR, "anomaly_results_w48.csv")
