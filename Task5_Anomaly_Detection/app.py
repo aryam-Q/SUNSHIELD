@@ -7,8 +7,12 @@ st.set_page_config(page_title="SUNSHIELD Anomaly Dashboard", layout="wide")
 st.title("SUNSHIELD — PV Anomaly Detection Dashboard")
 
 @st.cache_data
+import os
+
 def load_data():
-    df = pd.read_csv("anomaly_results_w48.csv")
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(BASE_DIR, "anomaly_results_w48.csv")
+    df = pd.read_csv(csv_path)
     df["DATE_TIME"] = pd.to_datetime(df["DATE_TIME"])
     return df
 
